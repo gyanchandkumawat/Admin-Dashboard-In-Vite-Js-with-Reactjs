@@ -251,7 +251,7 @@ function Dashboard() {
                           dataKey="count"
                           label={({ name, percent }) => `${name} (${((percent || 0) * 100).toFixed(0)}%)`}
                         >
-                          {companyData.map((entry, index) => (
+                          {companyData.map((_, index) => (
                             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                           ))}
                         </Pie>

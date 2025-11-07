@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Dashboard from './dashboard';
 import GithubProfileViewer from './git-profile';
-import { CodeC } from './code-main';
 
 function App() {
   return (
@@ -28,12 +27,6 @@ function App() {
                 >
                   GitHub Viewer
                 </Link>
-                 <Link
-                  to="/code-c"
-                  className="text-gray-600 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Refactor Code
-                </Link>
               </div>
             </div>
           </div>
@@ -42,7 +35,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/github-viewer" element={<GithubProfileViewer />} />
-          <Route path="/code-c" element={<CodeC />} />
         </Routes>
       </div>
     </Router>

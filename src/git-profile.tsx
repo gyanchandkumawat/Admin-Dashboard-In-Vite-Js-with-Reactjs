@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Search, Users, MapPin, Link, Building, Twitter, Star, GitFork } from 'lucide-react';
+import { Search, MapPin, Link, Building, Twitter, Star, GitFork } from 'lucide-react';
 
 // Animation variants
 const containerVariants = {
@@ -78,8 +78,8 @@ function GithubProfileViewer() {
       const reposResponse = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=10`);
       const reposData = await reposResponse.json();
       setRepos(reposData);
-    } catch (err: any) {
-      setError((err as Error).message);
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'An error occurred');
       setUserData(null);
       setRepos([]);
     } finally {
